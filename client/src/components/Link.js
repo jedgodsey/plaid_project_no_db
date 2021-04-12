@@ -3,18 +3,21 @@ import { PlaidLink } from "react-plaid-link";
 // import axios from "axios";
 
 const Link = props => {
-  const onExit = (error, metadata) => console.log('onExit', error, metadata);
+  const onExit = (error, metadata) => {
+    console.log('onExit', error, metadata);
+  }
   
   const onEvent = (eventName, metadata) => {
     console.log('onEvent', eventName, metadata);
+
     // if(metadata === 'OPEN') {
       // props.getToken()
     // }
   }
   
   const onSuccess = (token, metadata) =>{
-    // console.log('onSuccess', token, metadata);
-    props.getAccessToken(token) //stars?
+    console.log('onSuccess', token, metadata);
+    props.getAccessToken(token)
   }
 
   return (

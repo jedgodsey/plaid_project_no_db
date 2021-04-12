@@ -2,7 +2,6 @@ require ('dotenv').config();
 
 const express = require('express');
 const bodyParser = require('body-parser');
-// const keys = require('./config/keys'); //???????
 const cors = require('cors');
 const plaid = require('plaid');
 
@@ -57,15 +56,15 @@ app.post('/token_exchange', async (req, res) => {
 app.post('/transactions', async (req, res) => {
   const { accessToken } = req.body
   const response = await plaidClient
-    .getTransactions(aaccessToken, '2021-01-1', '2021-04-11', {
+    .getTransactions(accessToken, '2021-04-01', '2021-04-08', {
       count: 250,
       offset: 0
     })
     .catch(err => {
       if (!accessToken) return 'no access token'
     })
+  console.log('actual response: ', response)
   const transactions = response.transactions
-  console.log(transactions)
   res.send({transactions})
 })
 
