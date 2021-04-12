@@ -6,7 +6,7 @@ const Link = props => {
   const onExit = (error, metadata) => console.log('onExit', error, metadata);
   
   const onEvent = (eventName, metadata) => {
-    // console.log('onEvent', eventName, metadata);
+    console.log('onEvent', eventName, metadata);
     // if(metadata === 'OPEN') {
       // props.getToken()
     // }
@@ -14,10 +14,8 @@ const Link = props => {
   
   const onSuccess = (token, metadata) =>{
     // console.log('onSuccess', token, metadata);
+    props.getAccessToken(token) //stars?
   }
-
-
-
 
   return (
     <>
