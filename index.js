@@ -50,6 +50,7 @@ app.post('/token_exchange', async (req, res) => {
       if (!publicToken) return 'no public token'
     })
   const itemId = response.item_id
+  console.log('whole token?: ', response)
   res.send({accessToken: response.access_token})
 })
 
